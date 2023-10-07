@@ -1,7 +1,5 @@
 package com.example.shoppinglist.domain
 
-import com.example.shoppinglist.data.ShopItem
-
 interface ShopListRepository {
     fun createShopItem(shopItem: ShopItem)
     fun updateShopItem(shopItem: ShopItem)
