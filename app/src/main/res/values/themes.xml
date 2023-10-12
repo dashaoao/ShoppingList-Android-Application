@@ -1,8 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.ShoppingList" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/deep_blue_500</item>
+        <item name="colorPrimaryVariant">@color/deep_blue_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/deep_blue_200</item>
+        <item name="colorOnPrimaryContainer">@color/deep_blue_900</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/deep_violet_200</item>
+        <item name="colorSecondaryVariant">@color/deep_violet_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/deep_violet_200</item>
+        <item name="colorOnSecondaryContainer">@color/deep_violet_900</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="colorError">@color/red_700</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="backgroundColor">@color/white_300</item>
     </style>
 
     <style name="Theme.ShoppingList" parent="Base.Theme.ShoppingList" />

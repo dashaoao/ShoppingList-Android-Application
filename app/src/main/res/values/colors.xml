@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="deep_blue_200">#e3dfff</color>
+    <color name="deep_blue_500">#5954a8</color>
+    <color name="deep_blue_700">#413b8e</color>
+    <color name="deep_blue_800">#2a2377</color>
+    <color name="deep_blue_900">#140463</color>
+    <color name="deep_violet_200">#ffd7f5</color>
+    <color name="deep_violet_500">#913e8b</color>
+    <color name="deep_violet_700">#752471</color>
+    <color name="deep_violet_800">#5a0559</color>
+    <color name="deep_violet_900">#380038</color>
+    <color name="grey_600">#787680</color>
+    <color name="grey_500">#928f99</color>
+
+    <color name="red_200">#ffb4ab</color>
+    <color name="red_700">#ba1a1a</color>
+    <color name="red_900">#410002</color>
     <color name="black">#FF000000</color>
+    <color name="black_900">#1c1b1f</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_300">#fffbff</color>
 </resources>
