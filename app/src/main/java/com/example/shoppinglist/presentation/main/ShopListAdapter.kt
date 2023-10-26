@@ -1,4 +1,4 @@
-package com.example.shoppinglist.presentation
+package com.example.shoppinglist.presentation.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCa
             DISABLED_ITEM -> R.layout.item_shop_disabled
             else -> throw RuntimeException("Unknown viewType: $viewType")
         }
-        val view = LayoutInflater.from(parent.context).inflate( layout, parent, false )
+        val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
         return ShopItemViewHolder(view)
     }
 
