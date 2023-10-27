@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.shoppinglist.R
 import com.example.shoppinglist.domain.ShopItem
-import com.example.shoppinglist.presentation.main.MainActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -126,7 +125,6 @@ class ShopItemActivity : AppCompatActivity() {
         private const val EXTRA_SHOP_ITEM_ID = "extra_shop_item_id"
         private const val MODE_UPDATE = "mode_edit"
         private const val MODE_ADD = "mode_add"
-
         private const val MODE_UNKNOWN = ""
 
         fun newIntentAddItem(context: Context): Intent {

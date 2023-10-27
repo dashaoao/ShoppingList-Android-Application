@@ -1,7 +1,6 @@
 package com.example.shoppinglist.presentation.main
 
 import androidx.lifecycle.ViewModel
-import com.example.shoppinglist.data.ShopListRepositoryImpl
 import com.example.shoppinglist.di.DependencyProvider.shopListRepository
 import com.example.shoppinglist.domain.DeleteShopItemUseCase
 import com.example.shoppinglist.domain.GetShopListUseCase
