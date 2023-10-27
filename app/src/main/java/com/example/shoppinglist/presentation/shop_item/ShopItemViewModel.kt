@@ -3,18 +3,17 @@ package com.example.shoppinglist.presentation.shop_item
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.shoppinglist.data.ShopListRepositoryImpl
+import com.example.shoppinglist.di.DependencyProvider.shopListRepository
 import com.example.shoppinglist.domain.CreateShopItemUseCase
 import com.example.shoppinglist.domain.GetShopItemUseCase
 import com.example.shoppinglist.domain.ShopItem
 import com.example.shoppinglist.domain.UpdateShopItemUseCase
 
 class ShopItemViewModel : ViewModel() {
-    private val repository = ShopListRepositoryImpl()
 
-    private val getShopItemUseCase = GetShopItemUseCase(repository)
-    private val createShopItemUseCase = CreateShopItemUseCase(repository)
-    private val updateShopItemUseCase = UpdateShopItemUseCase(repository)
+    private val getShopItemUseCase = GetShopItemUseCase(shopListRepository)
+    private val createShopItemUseCase = CreateShopItemUseCase(shopListRepository)
+    private val updateShopItemUseCase = UpdateShopItemUseCase(shopListRepository)
 
     private val _errorInputName = MutableLiveData<Boolean>()
     val errorInputName: LiveData<Boolean>
@@ -68,22 +67,23 @@ class ShopItemViewModel : ViewModel() {
     }
 
     private fun validateInput(name: String, count: Int): Boolean {
-        return if (name.isBlank()) {
+        var result = true
+        if (name.isBlank()) {
             _errorInputName.value = true
-            false
+            result = false
         }
-        else if (count <= 0) {
+        if (count <= 0) {
             _errorInputCount.value = true
-            false
+            result = false
         }
-        else true
+        return result
     }
 
-    public fun resetErrorInputName(){
+    fun resetErrorInputName(){
         _errorInputName.value = false
     }
 
-    public fun resetErrorInputCount(){
+    fun resetErrorInputCount(){
         _errorInputCount.value = false
     }
 
