@@ -2,6 +2,7 @@ package com.example.shoppinglist.presentation.main
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
 import androidx.lifecycle.ViewModelProvider
@@ -12,10 +13,11 @@ import com.example.shoppinglist.domain.ShopItem
 import com.example.shoppinglist.presentation.shop_item.ShopItemActivity
 import com.example.shoppinglist.presentation.shop_item.ShopItemFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModel()
     private lateinit var shopListAdapter: ShopListAdapter
 
     private var shopItemContainer: FragmentContainerView? = null
@@ -27,14 +29,13 @@ class MainActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedList
         setContentView(R.layout.activity_main)
         shopItemContainer = findViewById(R.id.shop_item_container)
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         setupRecyclerView()
         viewModel.shopList.observe(this) {
             shopListAdapter.submitList(it)
         }
         val buttonAdd = findViewById<FloatingActionButton>(R.id.btn_add_shop_item)
         buttonAdd.setOnClickListener {
-            if (shopItemContainer == null){
+            if (shopItemContainer == null) {
                 val intent = ShopItemActivity.newIntentAddItem(this)
                 startActivity(intent)
             } else {
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedList
         }
     }
 
-    private fun launchRightMode(){
+    private fun launchRightMode() {
         val fragment = when (screenMode) {
             MODE_ADD -> ShopItemFragment.newInstanceAddItem()
             MODE_UPDATE -> ShopItemFragment.newInstanceUpdateItem(shopItemId)
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedList
 
     private fun setupClickListener() {
         shopListAdapter.onShopItemClickListener = {
-            if (shopItemContainer == null){
+            if (shopItemContainer == null) {
                 val intent = ShopItemActivity.newIntentUpdateItem(this, it.id)
                 startActivity(intent)
             } else {
